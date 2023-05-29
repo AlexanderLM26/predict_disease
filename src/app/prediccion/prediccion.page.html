@@ -1,0 +1,480 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Predicción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Enfermedad</ion-label>
+      <ion-select [(ngModel)]="enfermedad" (ionChange)="mostrarDatosEnfermedad()">
+        <ion-select-option value="Diabetes">Diabetes</ion-select-option>
+        <ion-select-option value="Anemia">Anemia</ion-select-option>
+        <ion-select-option value="CancerdePulmon">Cancer de Pulmon</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Género</ion-label>
+      <ion-select [(ngModel)]="genero">
+        <ion-select-option value="masculino">2</ion-select-option>
+        <ion-select-option value="femenino">1</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Edad</ion-label>
+      <ion-select [(ngModel)]="edad">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Hipertensión</ion-label>
+      <ion-select [(ngModel)]="hipertension">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Enfermedad cardíaca</ion-label>
+      <ion-select [(ngModel)]="enfermedadCardiaca">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Antecedentes de tabaquismo</ion-label>
+      <ion-select [(ngModel)]="tabaquismo">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>IMC</ion-label>
+      <ion-select [(ngModel)]="inc">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>HbA1c Level</ion-label>
+      <ion-select [(ngModel)]="hba1cLevel">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="enfermedad === 'Diabetes'">
+      <ion-label>Nivel de glucosa en sangre</ion-label>
+      <ion-select [(ngModel)]="glucosaSangre">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+<!-- Datos de anemia -->
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>Género</ion-label>
+  <ion-select [(ngModel)]="genero">
+    <ion-select-option value="masculino">0</ion-select-option>
+    <ion-select-option value="femenino">1</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>Nombre</ion-label>
+  <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>Apellido</ion-label>
+  <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>Edad</ion-label>
+  <ion-select [(ngModel)]="edad">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>Hemoglobin</ion-label>
+  <ion-select [(ngModel)]="Hemoglobin">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>MCH</ion-label>
+  <ion-select [(ngModel)]="MCH">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>MCHC</ion-label>
+  <ion-select [(ngModel)]="MCHC">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'Anemia'">
+  <ion-label>MCV</ion-label>
+  <ion-select [(ngModel)]="MCV">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<!-- Datos de cancer de pulmon -->
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Género</ion-label>
+  <ion-select [(ngModel)]="genero">
+    <ion-select-option value="masculino">0</ion-select-option>
+    <ion-select-option value="femenino">1</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Nombre</ion-label>
+  <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Apellido</ion-label>
+  <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Edad</ion-label>
+  <ion-select [(ngModel)]="edad">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>'Alcohol use</ion-label>
+  <ion-select [(ngModel)]="Alcohol_use">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Dust Allergy</ion-label>
+  <ion-select [(ngModel)]="Dust_Allergy">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Genetic Risk</ion-label>
+  <ion-select [(ngModel)]="Genetic_Risk">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>chronic Lung Disease</ion-label>
+  <ion-select [(ngModel)]="chronic_Lung_Disease">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Balanced Diet</ion-label>
+  <ion-select [(ngModel)]="Balanced_Diet">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Obesity</ion-label>
+  <ion-select [(ngModel)]="Obesity">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Smoking</ion-label>
+  <ion-select [(ngModel)]="Smoking">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Passive Smoker</ion-label>
+  <ion-select [(ngModel)]="Passive_Smoker">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Chest Pain</ion-label>
+  <ion-select [(ngModel)]="Chest_Pain">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Coughing of Blood</ion-label>
+  <ion-select [(ngModel)]="Coughing_of_Blood">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Fatigue</ion-label>
+  <ion-select [(ngModel)]="Fatigue">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Wheezing</ion-label>
+  <ion-select [(ngModel)]="Wheezing">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Swallowing Difficulty</ion-label>
+  <ion-select [(ngModel)]="Swallowing_Difficulty">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Clubbing of Finger Nails</ion-label>
+  <ion-select [(ngModel)]="Clubbing_of_Finger_Nails">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Clubbing of Finger Nails</ion-label>
+  <ion-select [(ngModel)]="Clubbing_of_Finger_Nails">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Dry Cough</ion-label>
+  <ion-select [(ngModel)]="Dry_Cough">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item *ngIf="enfermedad === 'CancerdePulmon'">
+  <ion-label>Dry Cough</ion-label>
+  <ion-select [(ngModel)]="Dry_Cough">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+    <ion-select-option value="6">6</ion-select-option>
+    <ion-select-option value="7">7</ion-select-option>
+    <ion-select-option value="8">8</ion-select-option>
+  </ion-select>
+</ion-item>
+</ion-list>
+
+    <ion-card *ngIf="enfermedadSeleccionada" class="enfermedad-card">
+      <ion-card-header>
+        {{ enfermedadSeleccionada }}
+      </ion-card-header>
+      <ion-card-content>
+        <p>Dato específico: {{ datoEspecifico }}</p>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-button expand="full" (click)="RealizarPrediccion()"class="realizar-prediccion-button">Realizar predicción</ion-button>
+    <ion-card *ngIf="resultadoPrediccion" class="resultado-card">
+      <ion-card-header>
+        Resultado de la predicción
+      </ion-card-header>
+      <ion-card-content>
+        {{ resultadoPrediccion }}
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+
+

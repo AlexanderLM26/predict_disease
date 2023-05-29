@@ -1,0 +1,52 @@
+.main-container {
+  margin-top: 40px;
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+
+body {
+  background-color: #ffebee;
+}
+.card {
+  width: 400px;
+  border: none;
+  border-radius: 14px !important;
+}
+.area1 {
+  background-color: #b5b2f1;
+  border-top-left-radius: 14px !important;
+  border-top-right-radius: 14px !important;
+  padding-top: 83px !important;
+}
+.image {
+  top: -62px;
+  position: relative;
+}
+.image img {
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+}
+
+.name {
+  font-size: 25px;
+  font-weight: 650;
+  color: #7175b5;
+}
+.justify-content-between:hover {
+  background-color: #eff3ff;
+  color: #7175b5;
+  cursor: pointer;
+}
+.justify-content-between:hover .fas {
+  color: #7175b5;
+}
+.justify-content-between.sample {
+  background-color: #eff3ff;
+  color: #7175b5;
+}
+.preview {
+  color: #7175b5;
+}
+.user-info{
+  color: red;
+}

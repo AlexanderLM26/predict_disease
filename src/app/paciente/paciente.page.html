@@ -1,0 +1,57 @@
+<ion-content>
+  <div class="center" >
+    <h1>Registro Pacientes</h1>
+    <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+
+      <div class="inputbox">
+        <input formControlName="nombre" required>
+        <span>Nombre</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="apellido" required>
+        <span>Apellido</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="correo_electronico" type="email" required>
+        <span>Correo Electronico</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="edad" type="number" required>
+        <span>Edad</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="peso" type="number" required>
+        <span>Peso</span>
+      </div>
+
+
+      <div class="inputbox">
+        <input formControlName="altura"type="number" required>
+        <span>Altura</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="direccion" required>
+        <span>Direccion</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="numero_celular" required>
+        <span>Numero Celular</span>
+      </div>
+
+      <div class="inputbox">
+        <input formControlName="ci" required>
+        <span>CI</span>
+      </div>
+
+      <div class="ion-padding">
+        <ion-button expand="full" type="submit" [disabled]="!pacienteForm.valid">Registrar</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,144 @@
+<!-- <ion-content>
+  <div class="wrapper">
+    <div class="logo">
+        <img src="./assets/img/logo5.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+       REGISTRARSE
+    </div>
+    <form class="p-3 mt-3" [formGroup]="formularioregistro" (submit)="register(formularioregistro)">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input formControlName="username" id="username" placeholder="Nombre">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['username'].errors?.required" class="error-message">
+           <p>El nombre es obligatorio   </p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input formControlName="email" id="email" placeholder="Email">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['email'].errors?.required" class="error-message">
+       <p>El email es obligatorio</p>
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['email'].errors?.email" class="error-message">
+        <p>Por favor, introduce un email válido </p>
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input formControlName="password" type="password" id="password" placeholder="Password">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['password'].errors?.required" class="error-message">
+       <p>La contraseña es obligatoria</p>
+      </div>
+      <button class="btn mt-3"  (click)="presentToast('Usuario registrado exitosamente')" expand="block">Registrar</button>
+
+    </form>
+
+  </div>
+</ion-content> -->
+
+
+
+
+
+
+
+
+
+
+<ion-content>
+  <div class="wrapper">
+    <div class="logo">
+        <img src="./assets/img/logo5.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+       REGISTRARSE
+    </div>
+    <form class="p-3 mt-3" [formGroup]="formularioregistro" (submit)="register(formularioregistro)">
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-phone"></span>
+        <input formControlName="codigoHospital" id="codigoHospital" placeholder="codigoHospital">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['codigoHospital'].errors?.required" class="error-message">
+        <p>El codigoHospital es obligatorio</p>
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['codigoHospital'].errors?.pattern" class="error-message">
+        <p>Por favor, introduce solo números</p>
+      </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input formControlName="nombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['nombre'].errors?.required" class="error-message">
+           <p>El nombre es obligatorio</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input formControlName="apellido" id="apellido" placeholder="Apellido">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['apellido'].errors?.required" class="error-message">
+           <p>El apellido es obligatorio</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input formControlName="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.required" class="error-message">
+          <p>El correo electrónico es obligatorio</p>
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.email" class="error-message">
+          <p>Por favor, introduce un correo electrónico válido</p>
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input formControlName="password" type="password" id="password" placeholder="Contraseña">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['password'].errors?.required" class="error-message">
+          <p>La contraseña es obligatoria</p>
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['password'].errors?.minlength" class="error-message">
+          <p>La contraseña debe tener al menos 8 caracteres</p>
+        </div>
+  
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-phone"></span>
+          <input formControlName="numero_celular" id="numero_celular" placeholder="Número de celular">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['numero_celular'].errors?.required" class="error-message">
+          <p>El número de celular es obligatorio</p>
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['numero_celular'].errors?.pattern" class="error-message">
+          <p>Por favor, introduce solo números</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="far fa-id-card"></span>
+          <input formControlName="ci" id="ci" placeholder="Cédula de identidad">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['ci'].errors?.required" class="error-message">
+          <p>La cédula de identidad es obligatoria</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-stethoscope"></span>
+          <input formControlName="especialidad" id="especialidad" placeholder="Especialidad">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['especialidad'].errors?.required" class="error-message">
+          <p>La especialidad es obligatoria</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-user-md"></span>
+          <select formControlName="rol" id="rol">
+            <option value="" disabled selected>Selecciona el rol</option>
+            <option value="medico">Médico</option>
+            <option value="enfermero">Enfermero</option>
+          </select>
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['rol'].errors?.required" class="error-message">
+          <p>El rol es obligatorio</p>
+        </div>
+        <button class="btn mt-3" (click)="presentToast('Médico registrado exitosamente')" expand="block">Registrar</button>
+    </form>
+  </div>
+</ion-content>

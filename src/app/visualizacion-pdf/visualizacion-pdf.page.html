@@ -1,0 +1,182 @@
+ <!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/registros"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="usuario">
+  <div *ngIf="enfermedad === 'diabetes'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información de Diabetes</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Nombre: {{ paciente.nombreUsuario }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Género: {{ paciente.genero }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hipertensión: {{ paciente.hipertencion }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cardiopatía: {{ paciente.cardiopatia }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fumador: {{ paciente.fumador }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>MCI: {{ paciente.MCI }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Niveles de Hemoglobina: {{ paciente.nivelesHemoglobina }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Niveles de Glucosa: {{ paciente.nivelGlucosa }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Resultado: {{ paciente.resultado }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="enfermedad === 'anemia'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información de Anemia</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Nombre: {{ usuario.nombreUsuario }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Género: {{ usuario.genero }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hemoglobina: {{ usuario.Hemogobina }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>MCH: {{ usuario.MCH }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>MCHC: {{ usuario.MCHC }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Resultado: {{ usuario.Resultado }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="enfermedad === 'cancerPulmonar'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información de Cáncer de Pulmón</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Nombre: {{ usuario.nombreUsuario }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Género: {{ usuario.Genero }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Edad: {{ usuario.edad }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Consumo de Alcohol: {{ usuario.ConsumoAlcohol }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Alergia al Polvo: {{ usuario.AlergiaPolvo }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Registro Genético: {{ usuario.RegistroGenetico }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enfermedad Pulmonar: {{ usuario.EnfermedadPulmonar }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dieta Equilibrada: {{ usuario.DietaEquilibrada }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Obesidad: {{ usuario.Obesidad }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tabaquismo: {{ usuario.Tabaquismo }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fumador Pasivo: {{ usuario.FumadorPasivo }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dolor en el Pecho: {{ usuario.DolorPecho }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tos con Sangre: {{ usuario.TosConSangre }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fatiga: {{ usuario.fatiga }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pérdida de Peso: {{ usuario.PerdidaPeso }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dificultad para Respirar: {{ usuario.DificultadRespirar }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sibilancia: {{ usuario.Sibilancia }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dificultad para Tragar: {{ usuario.DificultadTragar }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tos Seca: {{ usuario.TosSeca }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Resultado: {{ usuario.resultados }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+
+  <ion-button expand="full" (click)="generarPDF()">Exportar PDF</ion-button>
+</ion-content>  -->
+
+
+
+
+
+<!-- detallePaciente.page.html -->
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      {{ paciente.nombre }} {{ paciente.apellido }}
+    </ion-card-header>
+    <!-- Mostrar otros datos del paciente -->
+
+    <!-- Mostrar datos de la enfermedad de diabetes -->
+    <ion-card-content *ngIf="diabetesData">
+      <!-- Mostrar datos de la enfermedad de diabetes -->
+    </ion-card-content>
+
+    <!-- Mostrar datos de la enfermedad de anemia -->
+    <ion-card-content *ngIf="anemiaData">
+      <!-- Mostrar datos de la enfermedad de anemia -->
+    </ion-card-content>
+
+    <!-- Mostrar datos de la enfermedad de cáncer pulmonar -->
+    <ion-card-content *ngIf="cancerData">
+      <!-- Mostrar datos de la enfermedad de cáncer pulmonar -->
+    </ion-card-content>
+
+    <!-- Mostrar datos de predicción si se cumple la condición -->
+    <ion-card-content *ngIf="mostrarPredicciones">
+      <!-- Mostrar datos de las predicciones -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

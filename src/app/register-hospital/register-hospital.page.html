@@ -1,0 +1,103 @@
+<!-- <ion-content>
+  <div class="wrapper">
+    <div class="logo">
+        <img src="./assets/img/logo5.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+       REGISTRARSE
+    </div>
+    <form class="p-3 mt-3" [formGroup]="formularioregistro" (submit)="register(formularioregistro)">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input formControlName="nombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div *ngIf="submitted && formularioregistro.controls['nombre'].errors?.required" class="error-message">
+           <p>El nombre es obligatorio</p>
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-map-marker-alt"></span>
+          <input formControlName="direccion" id="direccion" placeholder="Dirección">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['direccion'].errors?.required" class="error-message">
+       <p>La dirección es obligatoria</p>
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-envelope"></span>
+        <input formControlName="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.required" class="error-message">
+       <p>El correo electrónico es obligatorio</p>
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.email" class="error-message">
+        <p>Por favor, introduce un correo electrónico válido</p>
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-phone"></span>
+        <input formControlName="telefono" id="telefono" placeholder="Telefono">
+      </div>
+      <div *ngIf="submitted && formularioregistro.controls['telefono'].errors?.required" class="error-message">
+       <p>El teléfono es obligatorio</p>
+      </div>
+      <button class="btn mt-3" expand="block">Registrar</button>
+    </form>
+  </div>
+</ion-content> -->
+
+
+<ion-content>
+    <div class="wrapper">
+      <div class="logo">
+          <img src="./assets/img/logo5.png" alt="">
+      </div>
+      <div class="text-center mt-4 name">
+         REGISTRARSE
+      </div>
+    <form [formGroup]="formularioregistro" (submit)="register(formularioregistro)">
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+        <input formControlName="nombre" id="nombre" placeholder="Nombre">
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['nombre'].errors?.required" class="error-message">
+       <p>El nombre es obligatorio</p>
+    </div>
+    
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-map-marker-alt"></span>
+      <input formControlName="direccion" id="direccion" placeholder="Dirección">
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['direccion'].errors?.required" class="error-message">
+      <p>La dirección es obligatoria</p>
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-envelope"></span>
+      <input formControlName="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico">
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.required" class="error-message">
+      <p>El correo electrónico es obligatorio</p>
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['correoElectronico'].errors?.pattern" class="error-message">
+      <p>Por favor, introduce un correo electrónico válido</p>
+    </div>
+    
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-phone"></span>
+      <input formControlName="telefono" id="telefono" placeholder="Teléfono">
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['telefono'].errors?.required" class="error-message">
+      <p>El teléfono es obligatorio</p>
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls['telefono'].errors?.pattern" class="error-message">
+      <p>Por favor, introduce solo números</p>
+    </div>
+    <div *ngIf="submitted && formularioregistro.controls('telefono').errors?.pattern" class="error-message">
+      <p>Por favor, introduce solo números</p>
+    </div>
+    <!-- <button class="btn mt-3" (click)="presentToast('Hospital registrado exitosamente')" expand="block">
+      Registrar
+    </button> -->
+    <button class="btn mt-3" (submit)="register(formularioregistro)" expand="block">Registrar</button>
+
+  </form>
+</div>
+</ion-content>

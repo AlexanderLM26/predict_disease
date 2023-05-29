@@ -1,0 +1,48 @@
+.form-group{
+  background-color: rgba(13, 12, 12, 0.558);
+  color: blanchedalmond;
+}
+.sala{
+  background-position:top;
+}
+img{
+  border-radius: 8%;
+}
+
+
+.enfermedad-card {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.realizar-prediccion-button {
+  margin-top: 10px;
+  --background: #7175b5;
+}
+
+.resultado-card {
+  background-color: #eaf1ff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+// .background-image {
+//   position: relative;
+//   background-image: url("assets/img/fondoO.png");
+//   background-size: cover;
+//   background-position: center;
+// }
+
+// .background-image::before {
+//   content: "";
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 50px; /* Ajusta la altura del degradado según tus necesidades */
+//   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+// }
+

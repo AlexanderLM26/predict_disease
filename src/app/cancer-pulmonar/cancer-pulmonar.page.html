@@ -1,0 +1,457 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >TEST CANCERPULMONAR</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/mis-casas"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+<div class="formulario">
+  <h2>Formulario de CancerPulmonar</h2>
+  <form (ngSubmit)="enviarFormulario3()">
+    <div class="campo">
+      <label for="paciente">Nombre de Paciente:</label>
+      <ion-searchbar id="paciente" name="paciente" [(ngModel)]="searchTerm" (ionChange)="buscarPacientes()" [value]="pacienteSeleccionado?.nombre"></ion-searchbar>
+      <ion-list *ngIf="pacientes.length > 0">
+        <ion-item-sliding *ngFor="let paciente of pacientes">
+          <ion-item (click)="seleccionarPaciente(paciente)">
+            {{ paciente.nombre }} {{ paciente.apellido }}
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="primary" (click)="realizarAccion(paciente)">
+              Realizar acción
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+
+    <div class="campo">
+      <ion-label for="Genero">Género:</ion-label>
+      <select id="Genero" name="Genero" [(ngModel)]="Genero" required>
+        <option value="">Seleccione</option>
+        <option value="0">Femenino</option>
+        <option value="1">Masculino</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label fro= "edad">edad</label>
+      <input type="number" id="edad" name="edad" [(ngModel)]="edad" required>
+    </div>
+
+    <div class="campo">
+      <label for="ConsumoAlcohol">ConsumoAlcohol:</label>
+      <div class="opciones">
+        <input type="radio" id="ConsumoAlcohol1" name="ConsumoAlcohol" value="1" [(ngModel)]="ConsumoAlcohol" required>
+        <label for="ConsumoAlcohol1">1</label>
+        <input type="radio" id="ConsumoAlcohol2" name="ConsumoAlcohol" value="2" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol2">2</label>
+        <input type="radio" id="ConsumoAlcohol3" name="ConsumoAlcohol" value="3" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol3">3</label>
+        <input type="radio" id="ConsumoAlcohol4" name="ConsumoAlcohol" value="4" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol4">4</label>
+        <input type="radio" id="ConsumoAlcohol5" name="ConsumoAlcohol" value="5" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol5">5</label>
+        <input type="radio" id="ConsumoAlcohol6" name="ConsumoAlcohol" value="6" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol6">6</label>
+        <input type="radio" id="ConsumoAlcohol7" name="ConsumoAlcohol" value="7" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol7">7</label>
+        <input type="radio" id="ConsumoAlcohol8" name="ConsumoAlcohol" value="8" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol8">8</label>
+        <input type="radio" id="ConsumoAlcohol9" name="ConsumoAlcohol" value="9" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol9">9</label>
+        <input type="radio" id="ConsumoAlcohol10" name="ConsumoAlcohol" value="10" [(ngModel)]="ConsumoAlcohol">
+        <label for="ConsumoAlcohol10">10</label>
+      </div>
+    </div>
+    
+    <div class="campo">
+      <label for="AlergiaPolvo">Alergia al Polvo:</label>
+      <div class="opciones">
+        <input type="radio" id="AlergiaPolvo1" name="AlergiaPolvo" value="1" [(ngModel)]="AlergiaPolvo" required>
+        <label for="AlergiaPolvo1">1</label>
+        <input type="radio" id="AlergiaPolvo2" name="AlergiaPolvo" value="2"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo2">2</label>
+        <input type="radio" id="AlergiaPolvo3" name="AlergiaPolvo" value="3"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo3">3</label>
+        <input type="radio" id="AlergiaPolvo4" name="AlergiaPolvo" value="4"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo4">4</label>
+        <input type="radio" id="AlergiaPolvo5" name="AlergiaPolvo" value="5"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo5">5</label>
+        <input type="radio" id="AlergiaPolvo6" name="AlergiaPolvo" value="6"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo6">6</label>
+        <input type="radio" id="AlergiaPolvo7" name="AlergiaPolvo" value="7"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo7">7</label>
+        <input type="radio" id="AlergiaPolvo8" name="AlergiaPolvo" value="8"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo8">8</label>
+        <input type="radio" id="AlergiaPolvo9" name="AlergiaPolvo" value="9"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo9">9</label>
+        <input type="radio" id="AlergiaPolvo10" name="AlergiaPolvo" value="10"[(ngModel)]="AlergiaPolvo">
+        <label for="AlergiaPolvo10">10</label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="RegistroGenetico">RegistroGenetico:</label>
+      <div class="opciones">
+        <input type="radio" id="RegistroGenetico1" name="RegistroGenetico" value="1" [(ngModel)]="RegistroGenetico"required>
+        <label for="RegistroGenetico1">1</label>
+        <input type="radio" id="RegistroGenetico2" name="RegistroGenetico" value="2"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico2">2</label>
+        <input type="radio" id="RegistroGenetico3" name="RegistroGenetico" value="3"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico3">3</label>
+        <input type="radio" id="RegistroGenetico4" name="RegistroGenetico" value="4"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico4">4</label>
+        <input type="radio" id="RegistroGenetico5" name="RegistroGenetico" value="5"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico5">5</label>
+        <input type="radio" id="RegistroGenetico6" name="RegistroGenetico" value="6"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico6">6</label>
+        <input type="radio" id="RegistroGenetico7" name="RegistroGenetico" value="7"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico7">7</label>
+        <input type="radio" id="RegistroGenetico8" name="RegistroGenetico" value="8"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico8">8</label>
+        <input type="radio" id="RegistroGenetico9" name="RegistroGenetico" value="9"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico9">9</label>
+        <input type="radio" id="RegistroGenetico10" name="RegistroGenetico" value="10"[(ngModel)]="RegistroGenetico">
+        <label for="RegistroGenetico10">10</label>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="EnfermedadPulmonar">EnfermedadPulmonar:</label>
+      <div class="opciones">
+        <input type="radio" id="EnfermedadPulmonar1" name="EnfermedadPulmonar" value="1" [(ngModel)]="EnfermedadPulmonar"required>
+        <label for="EnfermedadPulmonar1">1</label>
+        <input type="radio" id="EnfermedadPulmonar2" name="EnfermedadPulmonar" value="2" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar2">2</label>
+        <input type="radio" id="EnfermedadPulmonar3" name="EnfermedadPulmonar" value="3" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar3">3</label>
+        <input type="radio" id="EnfermedadPulmonar4" name="EnfermedadPulmonar" value="4" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar4">4</label>
+        <input type="radio" id="EnfermedadPulmonar5" name="EnfermedadPulmonar" value="5" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar5">5</label>
+        <input type="radio" id="EnfermedadPulmonar6" name="EnfermedadPulmonar" value="6" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar6">6</label>
+        <input type="radio" id="EnfermedadPulmonar7" name="EnfermedadPulmonar" value="7" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar7">7</label>
+        <input type="radio" id="EnfermedadPulmonar8" name="EnfermedadPulmonar" value="8" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar8">8</label>
+        <input type="radio" id="EnfermedadPulmonar9" name="EnfermedadPulmonar" value="9" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar9">9</label>
+        <input type="radio" id="EnfermedadPulmonar10" name="EnfermedadPulmonar" value="10" [(ngModel)]="EnfermedadPulmonar">
+        <label for="EnfermedadPulmonar10">10</label>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="DietaEquilibrada">DietaEquilibrada:</label>
+      <div class="opciones">
+        <input type="radio" id="DietaEquilibrada1" name="DietaEquilibrada" value="1"  [(ngModel)]="DietaEquilibrada"required>
+        <label for="DietaEquilibrada1">1</label>
+        <input type="radio" id="DietaEquilibrada2" name="DietaEquilibrada" value="2" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada2">2</label>
+        <input type="radio" id="DietaEquilibrada3" name="DietaEquilibrada" value="3" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada3">3</label>
+        <input type="radio" id="DietaEquilibrada4" name="DietaEquilibrada" value="4" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada4">4</label>
+        <input type="radio" id="DietaEquilibrada5" name="DietaEquilibrada" value="5" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada5">5</label>
+        <input type="radio" id="DietaEquilibrada6" name="DietaEquilibrada" value="6" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada6">6</label>
+        <input type="radio" id="DietaEquilibrada7" name="DietaEquilibrada" value="7" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada7">7</label>
+        <input type="radio" id="DietaEquilibrada8" name="DietaEquilibrada" value="8" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada8">8</label>
+        <input type="radio" id="DietaEquilibrada9" name="DietaEquilibrada" value="9" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada9">9</label>
+        <input type="radio" id="DietaEquilibrada10" name="DietaEquilibrada" value="10" [(ngModel)]="DietaEquilibrada">
+        <label for="DietaEquilibrada10">10</label>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="Obesidad">Obesidad:</label>
+      <div class="opciones">
+        <input type="radio" id="Obesidad1" name="Obesidad" value="1"  [(ngModel)]="Obesidad"required>
+        <label for="Obesidad1">1</label>
+        <input type="radio" id="Obesidad2" name="Obesidad" value="2" [(ngModel)]="Obesidad">
+        <label for="Obesidad2">2</label>
+        <input type="radio" id="Obesidad3" name="Obesidad" value="3" [(ngModel)]="Obesidad">
+        <label for="Obesidad3">3</label>
+        <input type="radio" id="Obesidad4" name="Obesidad" value="4" [(ngModel)]="Obesidad">
+        <label for="Obesidad4">4</label>
+        <input type="radio" id="Obesidad5" name="Obesidad" value="5" [(ngModel)]="Obesidad">
+        <label for="Obesidad5">5</label>
+        <input type="radio" id="Obesidad6" name="Obesidad" value="6" [(ngModel)]="Obesidad">
+        <label for="Obesidad6">6</label>
+        <input type="radio" id="Obesidad7" name="Obesidad" value="7" [(ngModel)]="Obesidad">
+        <label for="Obesidad7">7</label>
+        <input type="radio" id="Obesidad8" name="Obesidad" value="8" [(ngModel)]="Obesidad">
+        <label for="Obesidad8">8</label>
+        <input type="radio" id="Obesidad9" name="Obesidad" value="9" [(ngModel)]="Obesidad">
+        <label for="Obesidad9">9</label>
+        <input type="radio" id="Obesidad10" name="Obesidad" value="10" [(ngModel)]="Obesidad">
+        <label for="Obesidad10">10</label>
+      </div>
+    </div>
+      <div class="campo">
+        <label for="Tabaquismo">Tabaquismo:</label>
+        <div class="opciones">
+          <input type="radio" id="Tabaquismo1" name="Tabaquismo" value="1"  [(ngModel)]="Tabaquismo"required>
+          <label for="Tabaquismo1">1</label>
+          <input type="radio" id="Tabaquismo2" name="Tabaquismo" value="2" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo2">2</label>
+          <input type="radio" id="Tabaquismo3" name="Tabaquismo" value="3" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo3">3</label>
+          <input type="radio" id="Tabaquismo4" name="Tabaquismo" value="4" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo4">4</label>
+          <input type="radio" id="Tabaquismo5" name="Tabaquismo" value="5" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo5">5</label>
+          <input type="radio" id="Tabaquismo6" name="Tabaquismo" value="6" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo6">6</label>
+          <input type="radio" id="Tabaquismo7" name="Tabaquismo" value="7" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo7">7</label>
+          <input type="radio" id="Tabaquismo8" name="Tabaquismo" value="8" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo8">8</label>
+          <input type="radio" id="Tabaquismo9" name="Tabaquismo" value="9" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo9">9</label>
+          <input type="radio" id="Tabaquismo10" name="Tabaquismo" value="10" [(ngModel)]="Tabaquismo">
+          <label for="Tabaquismo10">10</label>
+        </div>
+      </div>
+        <div class="campo">
+          <label for="FumadorPasivo">FumadorPasivo:</label>
+          <div class="opciones">
+            <input type="radio" id="FumadorPasivo1" name="FumadorPasivo" value="1"  [(ngModel)]="FumadorPasivo"required>
+            <label for="FumadorPasivo1">1</label>
+            <input type="radio" id="FumadorPasivo2" name="FumadorPasivo" value="2" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo2">2</label>
+            <input type="radio" id="FumadorPasivo3" name="FumadorPasivo" value="3" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo3">3</label>
+            <input type="radio" id="FumadorPasivo4" name="FumadorPasivo" value="4" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo4">4</label>
+            <input type="radio" id="FumadorPasivo5" name="FumadorPasivo" value="5" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo5">5</label>
+            <input type="radio" id="FumadorPasivo6" name="FumadorPasivo" value="6" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo6">6</label>
+            <input type="radio" id="FumadorPasivo7" name="FumadorPasivo" value="7" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo7">7</label>
+            <input type="radio" id="FumadorPasivo8" name="FumadorPasivo" value="8" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo8">8</label>
+            <input type="radio" id="FumadorPasivo9" name="FumadorPasivo" value="9" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo9">9</label>
+            <input type="radio" id="FumadorPasivo10" name="FumadorPasivo" value="10" [(ngModel)]="FumadorPasivo">
+            <label for="FumadorPasivo10">10</label>
+          </div>
+        </div>
+       <div class="campo">
+      <label for="DolorPecho">DolorPecho:</label>
+      <div class="opciones">
+        <input type="radio" id="DolorPecho1" name="DolorPecho" value="1"  [(ngModel)]="DolorPecho"required>
+        <label for="DolorPecho1">1</label>
+        <input type="radio" id="DolorPecho2" name="DolorPecho" value="2" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho2">2</label>
+        <input type="radio" id="DolorPecho3" name="DolorPecho" value="3" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho3">3</label>
+        <input type="radio" id="DolorPecho4" name="DolorPecho" value="4" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho4">4</label>
+        <input type="radio" id="DolorPecho5" name="DolorPecho" value="5" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho5">5</label>
+        <input type="radio" id="DolorPecho6" name="DolorPecho" value="6" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho6">6</label>
+        <input type="radio" id="DolorPecho7" name="DolorPecho" value="7" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho7">7</label>
+        <input type="radio" id="DolorPecho8" name="DolorPecho" value="8" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho8">8</label>
+        <input type="radio" id="DolorPecho9" name="DolorPecho" value="9" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho9">9</label>
+        <input type="radio" id="DolorPecho10" name="DolorPecho" value="10" [(ngModel)]="DolorPecho">
+        <label for="DolorPecho10">10</label>
+      </div>
+    </div>
+      <div class="campo">
+        <label for="TosConSangre">TosConSangre:</label>
+        <div class="opciones">
+          <input type="radio" id="TosConSangre1" name="TosConSangre" value="1" [(ngModel)]="TosConSangre" required>
+          <label for="TosConSangre1">1</label>
+          <input type="radio" id="TosConSangre2" name="TosConSangre" value="2" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre2">2</label>
+          <input type="radio" id="TosConSangre3" name="TosConSangre" value="3" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre3">3</label>
+          <input type="radio" id="TosConSangre4" name="TosConSangre" value="4" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre4">4</label>
+          <input type="radio" id="TosConSangre5" name="TosConSangre" value="5" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre5">5</label>
+          <input type="radio" id="TosConSangre6" name="TosConSangre" value="6" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre6">6</label>
+          <input type="radio" id="TosConSangre7" name="TosConSangre" value="7" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre7">7</label>
+          <input type="radio" id="TosConSangre8" name="TosConSangre" value="8" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre8">8</label>
+          <input type="radio" id="TosConSangre9" name="TosConSangre" value="9" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre9">9</label>
+          <input type="radio" id="TosConSangre10" name="TosConSangre" value="10" [(ngModel)]="TosConSangre">
+          <label for="TosConSangre10">10</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="fatiga">fatiga:</label>
+        <div class="opciones">
+          <input type="radio" id="fatiga1" name="fatiga" value="1" [(ngModel)]="fatiga" required>
+          <label for="fatiga1">1</label>
+          <input type="radio" id="fatiga2" name="fatiga" value="2" [(ngModel)]="fatiga">
+          <label for="fatiga2">2</label>
+          <input type="radio" id="fatiga3" name="fatiga" value="3" [(ngModel)]="fatiga">
+          <label for="fatiga3">3</label>
+          <input type="radio" id="fatiga4" name="fatiga" value="4" [(ngModel)]="fatiga">
+          <label for="fatiga4">4</label>
+          <input type="radio" id="fatiga5" name="fatiga" value="5" [(ngModel)]="fatiga">
+          <label for="fatiga5">5</label>
+          <input type="radio" id="fatiga6" name="fatiga" value="6" [(ngModel)]="fatiga">
+          <label for="fatiga6">6</label>
+          <input type="radio" id="fatiga7" name="fatiga" value="7" [(ngModel)]="fatiga">
+          <label for="fatiga7">7</label>
+          <input type="radio" id="fatiga8" name="fatiga" value="8" [(ngModel)]="fatiga">
+          <label for="fatiga8">8</label>
+          <input type="radio" id="fatiga9" name="fatiga" value="9" [(ngModel)]="fatiga">
+          <label for="fatiga9">9</label>
+          <input type="radio" id="fatiga10" name="fatiga" value="10" [(ngModel)]="fatiga">
+          <label for="fatiga10">10</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="PerdidaPeso">PerdidaPeso:</label>
+        <div class="opciones">
+          <input type="radio" id="PerdidaPeso1" name="PerdidaPeso" value="1" [(ngModel)]="PerdidaPeso" required>
+          <label for="PerdidaPeso1">1</label>
+          <input type="radio" id="PerdidaPeso2" name="PerdidaPeso" value="2" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso2">2</label>
+          <input type="radio" id="PerdidaPeso3" name="PerdidaPeso" value="3" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso3">3</label>
+          <input type="radio" id="PerdidaPeso4" name="PerdidaPeso" value="4" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso4">4</label>
+          <input type="radio" id="PerdidaPeso5" name="PerdidaPeso" value="5" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso5">5</label>
+          <input type="radio" id="PerdidaPeso6" name="PerdidaPeso" value="6" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso6">6</label>
+          <input type="radio" id="PerdidaPeso7" name="PerdidaPeso" value="7" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso7">7</label>
+          <input type="radio" id="PerdidaPeso8" name="PerdidaPeso" value="8" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso8">8</label>
+          <input type="radio" id="PerdidaPeso9" name="PerdidaPeso" value="9" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso9">9</label>
+          <input type="radio" id="PerdidaPeso10" name="PerdidaPeso" value="10" [(ngModel)]="PerdidaPeso">
+          <label for="PerdidaPeso10">10</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="DificultadRespirar">DificultadRespirar:</label>
+        <div class="opciones">
+          <input type="radio" id="DificultadRespirar1" name="DificultadRespirar" value="1" [(ngModel)]="DificultadRespirar" required>
+          <label for="DificultadRespirar1">1</label>
+          <input type="radio" id="DificultadRespirar2" name="DificultadRespirar" value="2" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar2">2</label>
+          <input type="radio" id="DificultadRespirar3" name="DificultadRespirar" value="3" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar3">3</label>
+          <input type="radio" id="DificultadRespirar4" name="DificultadRespirar" value="4" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar4">4</label>
+          <input type="radio" id="DificultadRespirar5" name="DificultadRespirar" value="5" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar5">5</label>
+          <input type="radio" id="DificultadRespirar6" name="DificultadRespirar" value="6" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar6">6</label>
+          <input type="radio" id="DificultadRespirar7" name="DificultadRespirar" value="7" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar7">7</label>
+          <input type="radio" id="DificultadRespirar8" name="DificultadRespirar" value="8" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar8">8</label>
+          <input type="radio" id="DificultadRespirar9" name="DificultadRespirar" value="9" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar9">9</label>
+          <input type="radio" id="DificultadRespirar10" name="DificultadRespirar" value="10" [(ngModel)]="DificultadRespirar">
+          <label for="DificultadRespirar10">10</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="Sibilancia">Sibilancia:</label>
+        <div class="opciones">
+          <input type="radio" id="Sibilancia1" name="Sibilancia" value="1" [(ngModel)]="Sibilancia" required>
+          <label for="Sibilancia1">1</label>
+          <input type="radio" id="Sibilancia2" name="Sibilancia" value="2" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia2">2</label>
+          <input type="radio" id="Sibilancia3" name="Sibilancia" value="3" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia3">3</label>
+          <input type="radio" id="Sibilancia4" name="Sibilancia" value="4" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia4">4</label>
+          <input type="radio" id="Sibilancia5" name="Sibilancia" value="5" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia5">5</label>
+          <input type="radio" id="Sibilancia6" name="Sibilancia" value="6" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia6">6</label>
+          <input type="radio" id="Sibilancia7" name="Sibilancia" value="7" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia7">7</label>
+          <input type="radio" id="Sibilancia8" name="Sibilancia" value="8" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia8">8</label>
+          <input type="radio" id="Sibilancia9" name="Sibilancia" value="9" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia9">9</label>
+          <input type="radio" id="Sibilancia10" name="Sibilancia" value="10" [(ngModel)]="Sibilancia">
+          <label for="Sibilancia10">10</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="DificultadTragar">DificultadTragar:</label>
+        <div class="opciones">
+          <input type="radio" id="DificultadTragar1" name="DificultadTragar" value="1" [(ngModel)]="DificultadTragar" required>
+          <label for="DificultadTragar1">1</label>
+          <input type="radio" id="DificultadTragar2" name="DificultadTragar" value="2" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar2">2</label>
+          <input type="radio" id="DificultadTragar3" name="DificultadTragar" value="3" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar3">3</label>
+          <input type="radio" id="DificultadTragar4" name="DificultadTragar" value="4" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar4">4</label>
+          <input type="radio" id="DificultadTragar5" name="DificultadTragar" value="5" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar5">5</label>
+          <input type="radio" id="DificultadTragar6" name="DificultadTragar" value="6" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar6">6</label>
+          <input type="radio" id="DificultadTragar7" name="DificultadTragar" value="7" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar7">7</label>
+          <input type="radio" id="DificultadTragar8" name="DificultadTragar" value="8" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar8">8</label>
+          <input type="radio" id="DificultadTragar9" name="DificultadTragar" value="9" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar9">9</label>
+          <input type="radio" id="DificultadTragar10" name="DificultadTragar" value="10" [(ngModel)]="DificultadTragar">
+          <label for="DificultadTragar10">10</label>
+        </div>
+      </div>
+        <div class="campo">
+          <label for="TosSeca">TosSeca:</label>
+          <div class="opciones">
+            <input type="radio" id="TosSeca1" name="TosSeca" value="1" [(ngModel)]="TosSeca" required>
+            <label for="TosSeca1">1</label>
+            <input type="radio" id="TosSeca2" name="TosSeca" value="2" [(ngModel)]="TosSeca">
+            <label for="TosSeca2">2</label>
+            <input type="radio" id="TosSeca3" name="TosSeca" value="3" [(ngModel)]="TosSeca">
+            <label for="TosSeca3">3</label>
+            <input type="radio" id="TosSeca4" name="TosSeca" value="4" [(ngModel)]="TosSeca">
+            <label for="TosSeca4">4</label>
+            <input type="radio" id="TosSeca5" name="TosSeca" value="5" [(ngModel)]="TosSeca">
+            <label for="TosSeca5">5</label>
+            <input type="radio" id="TosSeca6" name="TosSeca" value="6" [(ngModel)]="TosSeca">
+            <label for="TosSeca6">6</label>
+            <input type="radio" id="TosSeca7" name="TosSeca" value="7" [(ngModel)]="TosSeca">
+            <label for="TosSeca7">7</label>
+            <input type="radio" id="TosSeca8" name="TosSeca" value="8" [(ngModel)]="TosSeca">
+            <label for="TosSeca8">8</label>
+            <input type="radio" id="TosSeca9" name="TosSeca" value="9" [(ngModel)]="TosSeca">
+            <label for="TosSeca9">9</label>
+            <input type="radio" id="TosSeca10" name="TosSeca" value="10" [(ngModel)]="TosSeca">
+            <label for="TosSeca10">10</label>
+          </div>
+      </div>
+    <!-- <div class="campo">
+      <label for="Resultados">Resultado:</label>
+      <input type="text" id="resultados" name="Obtener resultados" [(ngModel)]="Resultados"required>
+    </div> -->
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+</ion-card>
+</ion-content>

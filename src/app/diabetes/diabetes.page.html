@@ -1,0 +1,230 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>diabetes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/mis-casas"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+<div class="formulario">
+  <h2>Formulario de Diabetes</h2>
+  <form (ngSubmit)="enviarFormulario()">
+    <div class="campo">
+      <label for="paciente">Nombre de Paciente:</label>
+      <!-- <ion-searchbar id="paciente" name="paciente" [(ngModel)]="searchTerm" (ionChange)="buscarMedicos()"></ion-searchbar> -->
+      <ion-searchbar id="paciente" name="paciente" [(ngModel)]="searchTerm" (ionChange)="buscarPacientes()" [value]="pacienteSeleccionado?.nombre"></ion-searchbar>
+      <ion-list *ngIf="pacientes.length > 0">
+        <ion-item-sliding *ngFor="let paciente of pacientes">
+          <ion-item (click)="seleccionarPaciente(paciente)">
+            {{ paciente.nombre }} {{ paciente.apellido }}
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="primary" (click)="realizarAccion(paciente)">
+              Realizar acción
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      
+    </div>
+
+    <div class="campo">
+      <label for="genero">Género:</label>
+      <select id="genero" name="genero" [(ngModel)]="genero" required>
+        <option value="">Seleccione</option>
+        <option value="0">Femenino</option>
+        <option value="1">Masculino</option>
+      </select>
+    </div>
+    
+    <div class="campo">
+      <label for= "edad">edad</label>
+      <input type="number" id="edad" name="edad" [(ngModel)]="edad" required>
+      <!-- <ion-item>
+        <ion-label for="edad">Edad:</ion-label>
+        <ion-text>{{ edad }}</ion-text>
+        <ion-range [(ngModel)]="edad" name="Ingrese su edad" min="0" max="100" step="1" snaps="true"></ion-range>
+      </ion-item>   -->
+    </div>
+
+    <div class="campo">
+      <label for="hipertencion">Hipertensión:</label>
+      <input type="number" id="hipertencion" name="hipertencion" [(ngModel)]="hipertencion" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="hipertencion1" name="hipertencion" value="1" [(ngModel)]="hipertencion" required>
+        <label for="hipertencion1">1</label>
+        <input type="radio" id="hipertencion2" name="hipertencion" value="2" [(ngModel)]="hipertencion">
+        <label for="hipertencion2">2</label>
+        <input type="radio" id="hipertencion3" name="hipertencion" value="3" [(ngModel)]="hipertencion">
+        <label for="hipertencion3">3</label>
+        <input type="radio" id="hipertencion4" name="hipertencion" value="4" [(ngModel)]="hipertencion">
+        <label for="hipertencion4">4</label>
+        <input type="radio" id="hipertencion5" name="hipertencion" value="5" [(ngModel)]="hipertencion">
+        <label for="hipertencion5">5</label>
+        <input type="radio" id="hipertencion6" name="hipertencion" value="6" [(ngModel)]="hipertencion">
+        <label for="hipertencion6">6</label>
+        <input type="radio" id="hipertencion7" name="hipertencion" value="7" [(ngModel)]="hipertencion">
+        <label for="hipertencion7">7</label>
+        <input type="radio" id="hipertencion8" name="hipertencion" value="8" [(ngModel)]="hipertencion">
+        <label for="hipertencion8">8</label>
+        <input type="radio" id="hipertencion9" name="hipertencion" value="9" [(ngModel)]="hipertencion">
+        <label for="hipertencion9">9</label>
+        <input type="radio" id="hipertencion10" name="hipertencion" value="10" [(ngModel)]="hipertencion">
+        <label for="hipertencion10">10</label>
+      </div> -->
+    </div>
+    
+    <div class="campo">
+      <label for="cardiopatia">Cardiopatía:</label>
+      <input type="number" id="cardiopatia" name="cardiopatia" [(ngModel)]="cardiopatia" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="cardiopatia1" name="cardiopatia" value="1" [(ngModel)]="cardiopatia" required>
+        <label for="cardiopatia1">1</label>
+        <input type="radio" id="cardiopatia2" name="cardiopatia" value="2"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia2">2</label>
+        <input type="radio" id="cardiopatia3" name="cardiopatia" value="3"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia3">3</label>
+        <input type="radio" id="cardiopatia4" name="cardiopatia" value="4"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia4">4</label>
+        <input type="radio" id="cardiopatia5" name="cardiopatia" value="5"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia5">5</label>
+        <input type="radio" id="cardiopatia6" name="cardiopatia" value="6"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia6">6</label>
+        <input type="radio" id="cardiopatia7" name="cardiopatia" value="7"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia7">7</label>
+        <input type="radio" id="cardiopatia8" name="cardiopatia" value="8"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia8">8</label>
+        <input type="radio" id="cardiopatia9" name="cardiopatia" value="9"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia9">9</label>
+        <input type="radio" id="cardiopatia10" name="cardiopatia" value="10"[(ngModel)]="cardiopatia">
+        <label for="cardiopatia10">10</label>
+      </div> -->
+    </div>
+
+    <div class="campo">
+      <label for="fumador">Fumador:</label>
+      <input type="number" id="fumador" name="fumador" [(ngModel)]="fumador" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="fumador1" name="fumador" value="1" [(ngModel)]="fumador"required>
+        <label for="fumador1">1</label>
+        <input type="radio" id="fumador2" name="fumador" value="2"[(ngModel)]="fumador">
+        <label for="fumador2">2</label>
+        <input type="radio" id="fumador3" name="fumador" value="3"[(ngModel)]="fumador">
+        <label for="fumador3">3</label>
+        <input type="radio" id="fumador4" name="fumador" value="4"[(ngModel)]="fumador">
+        <label for="fumador4">4</label>
+        <input type="radio" id="fumador5" name="fumador" value="5"[(ngModel)]="fumador">
+        <label for="fumador5">5</label>
+        <input type="radio" id="fumador6" name="fumador" value="6"[(ngModel)]="fumador">
+        <label for="fumador6">6</label>
+        <input type="radio" id="fumador7" name="fumador" value="7"[(ngModel)]="fumador">
+        <label for="fumador7">7</label>
+        <input type="radio" id="fumador8" name="fumador" value="8"[(ngModel)]="fumador">
+        <label for="fumador8">8</label>
+        <input type="radio" id="fumador9" name="fumador" value="9"[(ngModel)]="fumador">
+        <label for="fumador9">9</label>
+        <input type="radio" id="fumador10" name="fumador" value="10"[(ngModel)]="fumador">
+        <label for="fumador10">10</label>
+      </div> -->
+    </div>
+
+    <div class="campo">
+      <label for="MCI">MCI:</label>
+      <input type="number" id="MCI" name="MCI" [(ngModel)]="MCI" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="MCI1" name="MCI" value="1" [(ngModel)]="MCI"required>
+        <label for="MCI1">1</label>
+        <input type="radio" id="MCI2" name="MCI" value="2"[(ngModel)]="MCI">
+        <label for="MCI2">2</label>
+        <input type="radio" id="MCI3" name="MCI" value="3"[(ngModel)]="MCI">
+        <label for="MCI3">3</label>
+        <input type="radio" id="MCI4" name="MCI" value="4"[(ngModel)]="MCI">
+        <label for="MCI4">4</label>
+        <input type="radio" id="MCI5" name="MCI" value="5"[(ngModel)]="MCI">
+        <label for="MCI5">5</label>
+        <input type="radio" id="MCI6" name="MCI" value="6"[(ngModel)]="MCI">
+        <label for="MCI6">6</label>
+        <input type="radio" id="MCI7" name="MCI" value="7"[(ngModel)]="MCI">
+        <label for="MCI7">7</label>
+        <input type="radio" id="MCI8" name="MCI" value="8"[(ngModel)]="MCI">
+        <label for="MCI8">8</label>
+        <input type="radio" id="MCI9" name="MCI" value="9"[(ngModel)]="MCI">
+        <label for="MCI9">9</label>
+        <input type="radio" id="MCI10" name="MCI" value="10"[(ngModel)]="MCI">
+        <label for="MCI10">10</label>
+      </div> -->
+    </div>
+
+    <div class="campo">
+      <label for="nivelesHemoglobina">Niveles de Hemoglobina:</label>
+      <input type="number" id="nivelesHemoglobina" name="nivelesHemoglobina" [(ngModel)]="nivelesHemoglobina" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="nivelesHemoglobina1" name="nivelesHemoglobina" value="1" [(ngModel)]="nivelesHemoglobina"required>
+        <label for="nivelesHemoglobina1">1</label>
+        <input type="radio" id="nivelesHemoglobina2" name="nivelesHemoglobina" value="2" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina2">2</label>
+        <input type="radio" id="nivelesHemoglobina3" name="nivelesHemoglobina" value="3" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina3">3</label>
+        <input type="radio" id="nivelesHemoglobina4" name="nivelesHemoglobina" value="4" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina4">4</label>
+        <input type="radio" id="nivelesHemoglobina5" name="nivelesHemoglobina" value="5" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina5">5</label>
+        <input type="radio" id="nivelesHemoglobina6" name="nivelesHemoglobina" value="6" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina6">6</label>
+        <input type="radio" id="nivelesHemoglobina7" name="nivelesHemoglobina" value="7" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina7">7</label>
+        <input type="radio" id="nivelesHemoglobina8" name="nivelesHemoglobina" value="8" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina8">8</label>
+        <input type="radio" id="nivelesHemoglobina9" name="nivelesHemoglobina" value="9" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina9">9</label>
+        <input type="radio" id="nivelesHemoglobina10" name="nivelesHemoglobina" value="10" [(ngModel)]="nivelesHemoglobina">
+        <label for="nivelesHemoglobina10">10</label>
+      </div> -->
+    </div>
+
+    <div class="campo">
+      <label for="nivelGlucosa">Nivel de Glucosa:</label>
+      <input type="number" id="nivelGlucosa" name="nivelGlucosa" [(ngModel)]="nivelGlucosa" required>
+      <!-- <div class="opciones">
+        <input type="radio" id="nivelGlucosa1" name="nivelGlucosa" value="1"  [(ngModel)]="nivelGlucosa"required>
+        <label for="nivelGlucosa1">1</label>
+        <input type="radio" id="nivelGlucosa2" name="nivelGlucosa" value="2" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa2">2</label>
+        <input type="radio" id="nivelGlucosa3" name="nivelGlucosa" value="3" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa3">3</label>
+        <input type="radio" id="nivelGlucosa4" name="nivelGlucosa" value="4" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa4">4</label>
+        <input type="radio" id="nivelGlucosa5" name="nivelGlucosa" value="5" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa5">5</label>
+        <input type="radio" id="nivelGlucosa6" name="nivelGlucosa" value="6" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa6">6</label>
+        <input type="radio" id="nivelGlucosa7" name="nivelGlucosa" value="7" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa7">7</label>
+        <input type="radio" id="nivelGlucosa8" name="nivelGlucosa" value="8" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa8">8</label>
+        <input type="radio" id="nivelGlucosa9" name="nivelGlucosa" value="9" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa9">9</label>
+        <input type="radio" id="nivelGlucosa10" name="nivelGlucosa" value="10" [(ngModel)]="nivelGlucosa">
+        <label for="nivelGlucosa10">10</label>
+      </div> -->
+    </div>
+
+    <!-- <div class="campo">
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="Ingrese su edad" [(ngModel)]="edad"required>
+    </div> -->
+
+    <!-- <div class="campo">
+      <label for="resultado">Resultado:</label>
+      <input type="text" id="resultado" name="Obtener resultados" [(ngModel)]="resultado"required>
+    </div> -->
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+</ion-card>
+</ion-content>

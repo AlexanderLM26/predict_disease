@@ -1,0 +1,29 @@
+  <ion-content>
+    <div class="wrapper">
+      <div class="logo">
+        <img src="./assets/img/logo5.png" alt="">
+      </div>
+      <div class="text-center mt-4 name">
+          INICIAR SESION
+      </div>
+      <form class="p-3 mt-3"  [formGroup]="formulariologin" (submit)="login(formulariologin)"  >
+          <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input  formControlName="username" id="username2" placeholder="Usuario">
+            <div *ngIf="submitted && formulariologin.controls['username'].errors?.required" class="error-message">
+            <p> El usuario es obligatorio</p>
+            </div>
+          </div>
+          <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input formControlName="password" type="password" id="password" placeholder="Contraseña">
+            <div  class="validar" *ngIf="submitted && formulariologin.controls['password'].errors?.required" class="error-message">
+              <p>La contraseña es obligatoria</p>
+            </div>
+          </div>
+          <button class="btn mt-3"  >Iniciar sesion</button>
+          <button class="btn mt-3"  routerLink="/register">Registrarse</button>
+          <button class="btn mt-3"  routerLink="/register-hospital">Registrar Hospital</button>
+      </form>
+    </div>
+  </ion-content>
